@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title> MY Second Page </title> 
+	<script>
+		function foo()
+		{
+			/*alert("DOne");
+			var a=12;
+			alert(typeof(a));
+			var d;
+			alert(typeof(d));
+			var e=null;
+			alert(e);
+			*/
+			var g=window.prompt("Enter the string");
+			document.write(g);
+			
+		}
+	</script>
+</head>
+
+<body bgcolor="orange">
+<form action="" method="GET">
+<input type="submit" value="DO_THIS" onclick="foo()"/>
+</form>
+</body>
+</html>
