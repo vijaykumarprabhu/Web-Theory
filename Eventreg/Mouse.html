@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title> MOUSE FOLLOWER </title>
+<style>
+#stop
+{
+	position:absolute;
+	bottom:10%;
+	left:40%;
+	
+}
+
+#start
+{
+	position:absolute;
+	bottom:10%;
+	left:20%;
+	
+}
+div#follower
+{
+	width:30px;
+	height:30px;
+	background-color:red;
+}
+
+</style>
+<script>
+count=0;
+function init()
+{
+	divfollower=document.getElementById("follower");
+	divfollower.style.position="absolute";
+	divfollower.style.left="50%";
+	divfollower.style.top="50%";	
+}
+
+function startfollow()
+{
+	document.addEventListener("mousemove",follow,false); //when mousemoves
+	changecolor();
+}
+
+function changecolor()
+{
+	if(count%2)
+	{
+		divfollower.style.backgroundColor="red";
+	}
+	else
+	{
+		divfollower.style.backgroundColor="blue";
+	}
+	count++;
+	id=setTimeout(changecolor,3000);
+}
+
+function follow()
+{
+	ev=event||window.event;
+	divfollower.style.position="absolute";
+	divfollower.style.left=ev.clientX +2+"px";
+	divfollower.style.top=ev.clientY +2+"px";
+}
+
+function stopfollow()
+{
+	document.removeEventListener("mousemove",follow);
+	init();
+}
+</script>
+</head>
+<body onload="init()">
+<div  id="follower"> </div>
+<input type="button"  id="start" onclick="startfollow()" value="START FOLLOW" >
+<input type="button"  id="stop" onclick="stopfollow()" value="STOP FOLLOW" >
+
+</body>
+</html>
