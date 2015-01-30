@@ -1,0 +1,18 @@
+<html>
+<head>
+	<script>
+		function init()
+		{
+			document.write("<ul><li>ONE</li><li>TWO</li></ul>"); //ovewriting on the same page if called with onload
+			document.close();
+		}
+	</script>
+</head>
+<body onload="init();"> <!-- onload=init() dont register function calls to on load using-->
+<input type="button" value="ONE" />
+<input type="button" value="TWO"/>
+<!--<script>
+	init();// we an call this
+</script>  -->
+</body>
+</html>
