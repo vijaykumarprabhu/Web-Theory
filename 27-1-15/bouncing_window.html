@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>bouncing window</title>
+<script>
+x=0,y=0,w=200,h=200;//window position and size
+dx=5,dy=5; //window velocity
+interval=100;//speed of moving in milliseconds
+function start()
+{
+	//new_win=window.open("www.facebook.com","mywindow","width=200px,height=200px,resizable=yes,toolbar=yes,scrollbar=yes");
+	//creating window
+	new_win=window.open('javascript:"<h1>BOUNCE</h1>"',"","width="+w+",height="+h);
+	//the javascript: URL is a simple way to describe
+	
+	//set the initial position of the window
+	new_win.moveTo(x,y);
+	
+	//use set interval function
+	//var id=window.setInterval("bounce()",interval);
+	//var id=window.setInterval(function(){bounce()},interval);
+	id=window.setInterval("bounce()",interval);
+}
+	//bounce function moves the window by dx and dy positions for every time interval\
+	function bounce()
+	{
+		if(new_win.closed)
+		{
+			window.clearInterval(id);
+			return;
+		}
+		//have we reached the right or left edge
+		if(   ( x+dx > (screen.availWidth - w) ) || (x+dx < 0))
+		{
+			dx=-dx;
+		}
+		//have we reached the top or bottom of the edge
+		if(  (y+dy > (screen.availHeight - h) )|| (y+dy < 0))
+		{	
+			dy=-dy;
+		}	
+		x+=dx;
+		y+=dy;
+		
+		//finally move the window to the new position
+		new_win.moveTo(x,y);
+	}
+	
+
+		//end of start function		
+
+function stop()
+{
+	new_win.close();
+}
+	
+
+
+</script>
+</head>
+<body bgcolor="#FF9999">
+<form>
+<input type="button" value="START" onclick="start();"/>
+<input type="button" value="STOP" onclick="stop();"/>
+</form>
+</body>
+</html>
+

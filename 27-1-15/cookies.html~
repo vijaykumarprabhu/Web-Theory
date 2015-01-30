@@ -1,0 +1,31 @@
+<html>
+<title>COOKIES</title>
+<head>
+<script>
+/*
+//delete a cookie without delete ,set the expire date to past date
+mystr="name=john";// cookie value is in name value pairs
+document.cookie=mystr;
+alert("simple"+document.cookie);
+document.cookie="dept=is;e";
+//with delimiter as part of the cookie value
+alert("with semicolon"+document.cookie) //will excecutr mystr1 also
+// use escape func we can remove the spl meaning of semicolon
+//mystr1="name1="+escape("smi_@;th");
+*/
+mystr1="dept1="+encodeURIComponent("is;e");
+document.cookie=mystr1;
+//alert("with escape semi"+document.cookie);
+date1=new Date(2015,1,28);
+newstr="course=web";
+document.cookie=newstr+";expires="+date1.toString();
+alert(document.cookie);
+document.cookie=newstr+";max-age=3000";
+alert(document.cookie);
+//setting past date to the expires property of cookie will delete
+</script>
+
+</head>
+<body bgcolor="orange">
+</body>
+</html>
