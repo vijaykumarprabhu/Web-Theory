@@ -1,0 +1,61 @@
+<html>
+<head>
+<script>
+function init()
+{
+	x=0,y=0,dx=12,dy=12; //Text velocity
+	flag=0;//not reached right end
+	interval=100;//speed of moving in milliseconds
+	textmove=document.getElementById("text");
+	textmove.style.position="absolute";
+		
+}
+function start()
+{
+	ev=event||window.event;
+	c=document.getElementById("text");
+	c.style.color="red";
+	//c.style.left=ev.clientX +2+"px";
+	id=window.setInterval("bounce()",interval);
+}
+
+function bounce()
+{
+	
+	//have we reached the right or left edge
+	if(   ( x+dx+80 > (screen.availWidth) ) || (x+dx < 0))
+	{
+			dx=-dx;
+			flag=1;
+	}
+	//have we reached the top or bottom of the edge
+	if(  (y+dy+120 > (screen.availHeight) )|| (y+dy < 0))
+	{	
+		dy=-dy;
+		flag=0;
+	}	
+	//alert(screen.availWidth+"hi"+x);
+
+	x+=dx;
+	y+=dy;
+	//alert(y)
+	c.style.bottom=ev.clientY +y+"px";
+	c.style.left=ev.clientX +x+"px";	
+	
+	
+}
+
+function stop()
+{
+	clearInterval(id);
+}
+</script>
+
+</head>
+<body onload="init()">
+
+<input type="button"  id="start" onclick="start()" value="START " >
+<input type="button"  id="stop" onclick="stop()" value="STOP " >
+<h1 id="text"> TEXT </h1>
+</body>
+</html>

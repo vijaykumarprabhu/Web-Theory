@@ -1,0 +1,87 @@
+<html>
+
+<head> 
+<style>
+h1{
+	text-align: center;	
+	position:relative;
+}
+</style>
+<script>
+function init(){
+	deltaX = 20;
+	deltaY = 20;
+	X = 4;
+	Y = 4;
+	flag=0;
+	interval = 150
+	para1 = document.getElementById('para1');
+	para1.style.marginLeft = X;
+	para1.style.marginTop = Y;
+	setInterval(changeColor, 100, para1);
+}
+
+function start(){
+	
+		id = setInterval(startBounce, interval);
+		
+}
+
+function changeColor(obj){
+	obj.style.color = getRandomColor();
+}
+
+
+function getRandomColor() {
+	var letters = '0123456789ABCDEF'.split('');
+	var color = '#';
+	for (var i = 0; i < 6; i++ ) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
+
+function startBounce(){
+	if((X + deltaX > window.innerWidth - 60 ) || (X + deltaX < 0) ){
+		deltaX = -deltaX;
+		
+	}
+	
+	if((Y + deltaY > window.innerHeight - 60) || (Y + deltaY < 0) ){
+		deltaY = -deltaY;
+	}
+	
+	X = X + deltaX;
+	Y = Y + deltaY;
+	para1.style.marginLeft = X;
+	para1.style.marginTop = Y;
+	
+}
+
+function stopBounce(){
+
+	alert("hi");
+	if(flag)
+	{
+		clearInterval(id);
+		flag=1;
+	}
+	else
+	{
+		id = setInterval(startBounce, interval);
+		flag=0;
+	}
+}
+</script>
+</head>
+
+<body onload='init()'>
+
+<input type="button"  id="start" onclick="start()" value="START " >
+<h1 id='para1' onclick="stopBounce()"> TEXT</h1>
+
+
+</div>
+
+</body>
+</html>
