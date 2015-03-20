@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>4th Lab</title>
+
+<script type="text/javascript">
+
+window.addEventListener("storage",change,false);
+//window.onstorage = change;
+var flag1 = false;
+var flag2 = false;
+
+function change(event)
+{
+    key = event.key;
+	//alert(key + "--" + event.newValue);
+	
+	
+	
+	
+	if(key == "str1"){
+	 	value1 = event.newValue;
+    
+	//alert("in str1" + value1);
+	
+    arr2 = value1.split(";");
+	eles = document.getElementsByTagName("h2");
+
+	for(var j=0; j < eles.length; j++)
+	{
+				eles[j].style.color = arr2[0];
+				eles[j].style.fontSize = parseInt(arr2[1]) + "px";
+	}
+	}
+	
+	else if(key == "str2")
+	{	
+  	value2 = event.newValue;
+    
+	//alert("in str2" + value2);
+	        
+	arr1 = value2.split(";");
+	eles1 = document.getElementsByTagName("p");
+
+	for(var j=0; j < eles1.length; j++)
+	{
+				eles1[j].style.color = arr1[0];
+				eles1[j].style.fontSize = parseInt(arr1[1]) + "px";
+	}
+	}
+	
+}
+
+</script>
+
+</head>
+
+<body>
+<div>
+<h1>text1.style.visibility hidden</h1> <br />
+computer.style.visibility hidden <br />
+text2.style.<h2>visibility</h2> visible <br />
+balloon.style.visibility visible <br />
+text1.style.<span>visibility</span> hidden<<br />
+<p>computer.style.visibility hidden <br />
+text2.style.visibility visible</p>
+balloon.style.visibility visible <br />
+</div>
+
+<footer>text1.style.visibility hidden<br />
+computer<h2>.style.visibility</h2> hidden <br />
+text2.style.visibility visible <br />
+balloon.style.visibility visible <br />
+</footer>
+
+</body>
+</html>

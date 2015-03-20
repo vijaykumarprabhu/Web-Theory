@@ -1,0 +1,33 @@
+<html>
+<head>
+<script type="text/javascript">
+function save()
+{
+    str1 = document.getElementById("hh2").value;
+   
+    localStorage.clear();
+    localStorage.setItem("str1", str1);
+	alert(localStorage.getItem("str1"));
+	
+}
+function save1()
+{
+  
+    str2 = document.getElementById("pp").value;
+    
+	localStorage.clear();
+    localStorage.setItem("str2", str2);
+	alert(localStorage.getItem("str2"));
+}
+</script>
+<head>
+<body>
+enter font color, font size, font style
+<br />
+<input type="text" id="hh2" />
+<input type="button" value="click" onclick="save()" />
+<input type="text" id="pp" />
+<input type="button" value="click" onclick="save1()" />
+
+</body>
+</html>
